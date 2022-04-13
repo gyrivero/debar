@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "299005748382",
+    "project_id": "debar-98c12",
+    "storage_bucket": "debar-98c12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299005748382:android:2e9921179b15ec9d5ac78f",
+        "android_client_info": {
+          "package_name": "com.example.barreview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299005748382-if0jhbfqguqu969c00ik75so1rquagjf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBB4VdkeGWuVMzpjHtYbwdGIU0YIal8BBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299005748382-if0jhbfqguqu969c00ik75so1rquagjf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
