@@ -5,4 +5,6 @@
     <string name="all_pass">Contraseña</string>
     <string name="all_user">Usuario</string>
     <string name="main_login">Ingresar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
