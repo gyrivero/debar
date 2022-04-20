@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/barListFragment"
         android:name="com.example.barreview.BarListFragment"
-        android:label="fragment_bar_list"
-        tools:layout="@layout/fragment_bar_list" >
+        android:label="@string/barlist_title"
+        tools:layout="@layout/fragment_bar_list">
         <action
             android:id="@+id/action_barListFragment_to_barFragment"
             app:destination="@id/barFragment" />
@@ -17,8 +17,8 @@
     <fragment
         android:id="@+id/barFragment"
         android:name="com.example.barreview.BarFragment"
-        android:label="fragment_bar"
-        tools:layout="@layout/fragment_bar" >
+        android:label="@string/bar_title"
+        tools:layout="@layout/fragment_bar">
         <argument
             android:name="id"
             app:argType="integer" />

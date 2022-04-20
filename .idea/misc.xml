@@ -5,13 +5,15 @@
       <map>
         <entry key="..\:/Users/gonza/AppData/Local/Android/Sdk/platforms/android-31/data/res/drawable/ratingbar_indicator_material.xml" value="0.137" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/custom_rating_bar.xml" value="0.1605" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/rating_empty.xml" value="0.1605" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/rating_fill.xml" value="0.1605" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/activity_container.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/bar_list_item.xml" value="0.4" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/bar_list_item.xml" value="0.2" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/fragment_bar.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/fragment_bar_list.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/fragment_bar_list.xml" value="0.1" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/menu/layout_menu.xml" value="0.20863616930312098" />
       </map>
     </option>
   </component>

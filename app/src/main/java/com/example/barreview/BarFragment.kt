@@ -37,7 +37,9 @@ class BarFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.nameTV.setText(barId.toString())
+
+        //Provisorio - Falta implementar base de datos
+        binding.barNameTV.setText(barId.toString())
     }
 
     override fun onDestroyView() {
