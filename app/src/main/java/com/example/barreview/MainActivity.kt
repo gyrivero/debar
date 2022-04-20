@@ -1,5 +1,7 @@
 package com.example.barreview
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.widget.doOnTextChanged
@@ -13,6 +15,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.loginBtn.setOnClickListener{
+            val intent = Intent(it.context,ContainerActivity::class.java)
+            it.context.startActivity(intent)
+        }
     }
 
 }
