@@ -4,13 +4,15 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.barreview.R
 import com.example.barreview.adapter.BarAdapter
-import com.example.barreview.data.Datasource
 import com.example.barreview.databinding.FragmentBarListBinding
 import com.example.barreview.model.Bar
+import com.example.barreview.viewmodel.BarViewModel
 import com.google.firebase.database.*
 
 
@@ -22,7 +24,7 @@ class BarListFragment : Fragment() {
     private var barList = mutableListOf<Bar>()
     private lateinit var adapter : BarAdapter
     private lateinit var database: DatabaseReference
-
+    private val viewModel: BarViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,9 +48,13 @@ class BarListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         //barList = createBar()
-        barList = Datasource.createDataSet()
-        adapter = BarAdapter(barList,this)
+        //barList = Datasource.getData()
+        adapter = BarAdapter(this)
         recyclerView.adapter = adapter
+
+        //adapter.setBarList(barList)
+
+        observeData()
     }
 
     //Provisorio - Falta implementar base de datos
@@ -77,17 +83,25 @@ class BarListFragment : Fragment() {
             R.id.add_bar -> {
                 database = FirebaseDatabase.getInstance().reference;
                 // write from the database
-                val bar :Bar = Bar(2,"Blaadasdasdadsadasdsadasdr","Cordoba","Palermo",3.0f)
+                /*val bar :Bar = Bar(2,"Blaadasdasdadsadasdsadasdr","Cordoba","Palermo",3.0f)
                 database.child("Bar").push().setValue(bar)
                 //barList.add(bar)
                 if (!barList.contains(bar)){
                     barList.add(bar)
-                }
-                recyclerView.adapter?.notifyDataSetChanged()
+                }*/
+                viewModel.addBar()
+                adapter.notifyDataSetChanged()
 
                 return true
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    fun observeData(){
+        viewModel.fetchBarData().observe(viewLifecycleOwner, Observer {
+            adapter.setBarList(it)
+            adapter.notifyDataSetChanged()
+        })
     }
 }
