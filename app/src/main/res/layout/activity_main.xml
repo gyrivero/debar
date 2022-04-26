@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <TextView
         android:id="@+id/loginTitleTV"
@@ -31,7 +31,7 @@
         app:srcCompat="@drawable/ic_beer" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/userTF"
+        android:id="@+id/userTFL"
         style="@style/Widget.BarReview.TextInputOutlined"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,17 +41,20 @@
         app:hintTextColor="@color/original_orange_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoIV">
+        app:layout_constraintTop_toBottomOf="@+id/logoIV"
+        app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userTF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:inputType="textEmailAddress"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passTF"
+        android:id="@+id/passTFL"
         style="@style/Widget.BarReview.TextInputOutlined"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,11 +64,14 @@
         app:hintTextColor="@color/original_orange_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userTF">
+        app:layout_constraintTop_toBottomOf="@+id/userTFL"
+        app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passTF"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,6 +84,6 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passTF" />
+        app:layout_constraintTop_toBottomOf="@+id/passTFL" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

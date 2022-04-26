@@ -3,13 +3,12 @@ package com.example.barreview.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.barreview.BarListFragment
+import com.example.barreview.ui.BarListFragment
 import com.example.barreview.BarListFragmentDirections
 import com.example.barreview.R
 import com.example.barreview.model.Bar
@@ -31,12 +30,12 @@ class BarAdapter (private val barList: List<Bar>, private val fragment : BarList
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = barList[position]
         holder.textView.text = item.name
-        holder.ratingBar.rating = item.rating
+        holder.ratingBar.rating = item.rating!!
         holder.imageButton.setOnClickListener{
             fragment.destroyBar(position)
         }
         holder.itemView.setOnClickListener{
-            val action = BarListFragmentDirections.actionBarListFragmentToBarFragment(id = item.id)
+            val action = BarListFragmentDirections.actionBarListFragmentToBarFragment(id = item.id!!)
             holder.itemView.findNavController().navigate(action)
         }
     }

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/barListFragment"
-        android:name="com.example.barreview.BarListFragment"
+        android:name="com.example.barreview.ui.BarListFragment"
         android:label="@string/barlist_title"
         tools:layout="@layout/fragment_bar_list">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/barFragment"
-        android:name="com.example.barreview.BarFragment"
+        android:name="com.example.barreview.ui.BarFragment"
         android:label="@string/bar_title"
         tools:layout="@layout/fragment_bar">
         <argument

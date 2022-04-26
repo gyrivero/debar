@@ -1,11 +1,14 @@
-package com.example.barreview
+package com.example.barreview.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.barreview.R
 import com.example.barreview.databinding.ActivityContainerBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class ContainerActivity : AppCompatActivity() {
 
@@ -19,6 +22,8 @@ class ContainerActivity : AppCompatActivity() {
             .findFragmentById(R.id.navHostFragment) as NavHostFragment
         navController = navHostFragment.navController
         setupActionBarWithNavController(navController)
+        var auth = FirebaseAuth.getInstance()
+        Toast.makeText(baseContext, auth.currentUser?.email,Toast.LENGTH_SHORT).show()
     }
 
     override fun onSupportNavigateUp(): Boolean {

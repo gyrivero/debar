@@ -13,7 +13,7 @@
         android:maxWidth="150dp"
         android:maxLines="3"
         android:singleLine="false"
-        android:text="Hola"
+        android:text="Blaadasdasdadsadasdsadasdr"
         android:textAppearance="?attr/textAppearanceHeadline5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,11 +24,10 @@
         style="@style/CustomRatingBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:isIndicator="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toEndOf="@+id/itemBarTV"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -50,6 +49,13 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="358dp"
         app:layout_constraintGuide_percent=".8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="150dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

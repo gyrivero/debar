@@ -1,30 +1,28 @@
-package com.example.barreview
+package com.example.barreview.ui
 
-import android.R.attr.data
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.barreview.R
 import com.example.barreview.adapter.BarAdapter
+import com.example.barreview.data.Datasource
 import com.example.barreview.databinding.FragmentBarListBinding
 import com.example.barreview.model.Bar
+import com.google.firebase.database.*
 
 
 class BarListFragment : Fragment() {
 
-    companion object {
-        var checked : Boolean = false;
-    }
-
     private var _binding: FragmentBarListBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
-    private var isLinearLayoutManager = true
-    private lateinit var barList: MutableList<Bar>
+    private var barList = mutableListOf<Bar>()
     private lateinit var adapter : BarAdapter
+    private lateinit var database: DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +40,15 @@ class BarListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        barList = createBar()
+        database = FirebaseDatabase.getInstance().reference;
+
         recyclerView = binding.recyclerView
-        chooseLayout()
+        recyclerView.layoutManager = LinearLayoutManager(context)
+
+        //barList = createBar()
+        barList = Datasource.createDataSet()
+        adapter = BarAdapter(barList,this)
+        recyclerView.adapter = adapter
     }
 
     //Provisorio - Falta implementar base de datos
@@ -56,19 +60,6 @@ class BarListFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-    private fun chooseLayout() {
-        adapter = BarAdapter(barList,this)
-        when (isLinearLayoutManager) {
-            true -> {
-                recyclerView.layoutManager = LinearLayoutManager(context)
-                recyclerView.adapter = adapter
-            }
-            false -> {
-                recyclerView.layoutManager = GridLayoutManager(context, 4)
-                recyclerView.adapter = adapter
-            }
-        }
     }
 
     fun destroyBar(index:Int){
@@ -84,9 +75,15 @@ class BarListFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.add_bar -> {
-                val bar :Bar = Bar(1,"Blest TARARARA TARARARARARA","Cordoba","Palermo",3.0f)
-                barList.add(bar)
-                adapter.notifyItemInserted(barList.size-1)
+                database = FirebaseDatabase.getInstance().reference;
+                // write from the database
+                val bar :Bar = Bar(2,"Blaadasdasdadsadasdsadasdr","Cordoba","Palermo",3.0f)
+                database.child("Bar").push().setValue(bar)
+                //barList.add(bar)
+                if (!barList.contains(bar)){
+                    barList.add(bar)
+                }
+                recyclerView.adapter?.notifyDataSetChanged()
 
                 return true
             }
