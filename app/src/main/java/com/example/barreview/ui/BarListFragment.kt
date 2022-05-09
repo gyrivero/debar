@@ -4,16 +4,20 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.barreview.R
 import com.example.barreview.adapter.BarAdapter
+import com.example.barreview.data.barlist.BarListDatasource
 import com.example.barreview.databinding.FragmentBarListBinding
+import com.example.barreview.domain.barlist.BarListRepo
 import com.example.barreview.model.Bar
-import com.example.barreview.viewmodel.BarViewModel
-import com.google.firebase.database.*
+import com.example.barreview.viewmodel.barlist.BarListViewModel
+import com.example.barreview.viewmodel.barlist.BarListViewModelFactory
+import com.example.barreview.util.Resource
 
 
 class BarListFragment : Fragment() {
@@ -21,14 +25,39 @@ class BarListFragment : Fragment() {
     private var _binding: FragmentBarListBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
-    private var barList = mutableListOf<Bar>()
     private lateinit var adapter : BarAdapter
-    private lateinit var database: DatabaseReference
-    private val viewModel: BarViewModel by activityViewModels()
+    private val viewModel by viewModels <BarListViewModel> { BarListViewModelFactory(BarListRepo(BarListDatasource())) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+    }
+
+    private fun observeData() {
+        viewModel.fetchBarList.observe(viewLifecycleOwner, Observer {
+            when (it) {
+
+                is Resource.Loading -> {
+
+                }
+
+                is Resource.Success -> {
+                    //adapter.setBarList(it.data)
+                    //Toast.makeText(activity, it.data[0].name, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(activity,"nombre" + it.data[1].name,Toast.LENGTH_SHORT).show()
+                    adapter.barList = it.data
+                    adapter.notifyDataSetChanged()
+
+                }
+
+                is Resource.Failure -> {
+                    Toast.makeText(activity, it.exception.message, Toast.LENGTH_SHORT).show()
+
+
+                }
+            }
+        })
     }
 
     override fun onCreateView(
@@ -42,25 +71,14 @@ class BarListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        database = FirebaseDatabase.getInstance().reference;
-
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
 
-        //barList = createBar()
-        //barList = Datasource.getData()
         adapter = BarAdapter(this)
         recyclerView.adapter = adapter
 
-        //adapter.setBarList(barList)
 
         observeData()
-    }
-
-    //Provisorio - Falta implementar base de datos
-    private fun createBar(): MutableList<Bar> {
-        val bar :Bar = Bar(1,"Blest TARARARA TARARARARARA","Cordoba","Palermo",3.0f)
-        return mutableListOf(bar)
     }
 
     override fun onDestroyView() {
@@ -69,9 +87,30 @@ class BarListFragment : Fragment() {
     }
 
     fun destroyBar(index:Int){
-        Toast.makeText(activity,barList[index].name, Toast.LENGTH_SHORT).show()
-        barList.removeAt(index)
-        adapter.notifyItemRemoved(index)
+        adapter.getbarList()[index].id?.let {
+            viewModel.deleteBar(it).observe(viewLifecycleOwner, Observer {
+                when (it) {
+
+                    is Resource.Loading -> {
+
+                    }
+
+                    is Resource.Success -> {
+                        Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show()
+                        adapter.barList.removeAt(index)
+                        adapter.notifyDataSetChanged()
+
+
+                    }
+
+                    is Resource.Failure -> {
+                        Toast.makeText(activity, it.exception.message, Toast.LENGTH_SHORT).show()
+
+
+                    }
+                }
+            })
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -81,27 +120,11 @@ class BarListFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.add_bar -> {
-                database = FirebaseDatabase.getInstance().reference;
-                // write from the database
-                /*val bar :Bar = Bar(2,"Blaadasdasdadsadasdsadasdr","Cordoba","Palermo",3.0f)
-                database.child("Bar").push().setValue(bar)
-                //barList.add(bar)
-                if (!barList.contains(bar)){
-                    barList.add(bar)
-                }*/
-                viewModel.addBar()
-                adapter.notifyDataSetChanged()
-
+                val action = BarListFragmentDirections.actionBarListFragmentToNewBarFragment()
+                view?.findNavController()?.navigate(action)
                 return true
             }
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    fun observeData(){
-        viewModel.fetchBarData().observe(viewLifecycleOwner, Observer {
-            adapter.setBarList(it)
-            adapter.notifyDataSetChanged()
-        })
     }
 }

@@ -26,9 +26,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun singIn(context: Context,email : String,password : String) {
+    private fun singIn(context: Context,email : String,password : String) {
         if (!checker(email, password)) {
-            auth.signInWithEmailAndPassword(email, password)
+            auth.signInWithEmailAndPassword("gonzaloyrivero@gmail.com", "gebo2808")
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         val user = auth.currentUser
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun checker(email : String, password: String): Boolean {
+    private fun checker(email : String, password: String): Boolean {
         var error = false
         binding.userTFL.error = null
         binding.passTFL.error = null
@@ -57,5 +57,6 @@ class MainActivity : AppCompatActivity() {
         }
         return error
     }
+
 
 }

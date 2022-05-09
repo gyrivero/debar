@@ -10,19 +10,19 @@ import com.example.barreview.databinding.FragmentBarBinding
 class BarFragment : Fragment() {
 
     companion object {
-        val ID = "id"
+        val NAME = "name"
     }
 
     private var _binding: FragmentBarBinding? = null
     private val binding get() = _binding!!
 
-    private var barId : Int? = null
+    private var barName : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
-            barId = it.getInt(ID)
+            barName = it.getString(NAME)
         }
     }
     override fun onCreateView(
@@ -39,7 +39,7 @@ class BarFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //Provisorio - Falta implementar base de datos
-        binding.barNameTV.setText(barId.toString())
+        binding.barNameTV.setText(barName.toString())
     }
 
     override fun onDestroyView() {

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_barListFragment_to_barFragment"
             app:destination="@id/barFragment" />
+        <action
+            android:id="@+id/action_barListFragment_to_newBarFragment"
+            app:destination="@id/newBarFragment" />
     </fragment>
     <fragment
         android:id="@+id/barFragment"
@@ -20,7 +23,17 @@
         android:label="@string/bar_title"
         tools:layout="@layout/fragment_bar">
         <argument
-            android:name="id"
-            app:argType="integer" />
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newBarFragment"
+        android:name="com.example.barreview.ui.NewBarFragment"
+        android:label="@string/newbar_title"
+        tools:layout="@layout/fragment_new_bar">
+        <action
+            android:id="@+id/action_newBarFragment_to_barListFragment"
+            app:destination="@id/barListFragment" />
     </fragment>
 </navigation>

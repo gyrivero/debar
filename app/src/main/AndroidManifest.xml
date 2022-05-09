@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarReview">
         <activity
-            android:name=".ui.ContainerActivity"
+            android:name="com.example.barreview.ui.ContainerActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name="com.example.barreview.ui.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.BarReview.NoActionBar">
             <intent-filter>

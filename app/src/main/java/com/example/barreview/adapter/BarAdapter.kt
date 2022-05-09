@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.RatingBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.barreview.ui.BarListFragment
@@ -20,11 +21,7 @@ class BarAdapter (private val fragment : BarListFragment) : RecyclerView.Adapter
         val imageButton : ImageButton = view.findViewById(R.id.itemDeleteIB)
     }
 
-    private var barList = mutableListOf<Bar>()
-
-    fun setBarList(data:MutableList<Bar>){
-        barList = data
-    }
+    var barList = mutableListOf<Bar>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -42,7 +39,7 @@ class BarAdapter (private val fragment : BarListFragment) : RecyclerView.Adapter
             fragment.destroyBar(position)
         }
         holder.itemView.setOnClickListener{
-            val action = BarListFragmentDirections.actionBarListFragmentToBarFragment(item.id!!)
+            val action = BarListFragmentDirections.actionBarListFragmentToBarFragment(item.name!!)
             holder.itemView.findNavController().navigate(action)
         }
     }
@@ -53,5 +50,10 @@ class BarAdapter (private val fragment : BarListFragment) : RecyclerView.Adapter
         } else {
             0
         }
+    }
+
+    fun getbarList(): List<Bar> {
+        val list : List<Bar> = barList
+        return list
     }
 }
