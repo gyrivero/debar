@@ -31,13 +31,14 @@
                 android:text="Blaadasdasdadsadasdsadasdr"
                 android:textAppearance="?attr/textAppearanceHeadline5"
                 android:textSize="20sp"
+                android:layout_marginStart="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <RatingBar
                 android:id="@+id/itemRB"
-                style="@style/CustomRatingBarStyle"
+                style="@style/CustomBeerRatingBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:isIndicator="true"

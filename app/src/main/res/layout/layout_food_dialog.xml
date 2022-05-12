@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/custom_dialog">
+
+
+    <TextView
+        android:id="@+id/foodDialogTV"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:text="Puntua la comida"
+        android:layout_margin="4dp"/>
+
+    <RatingBar
+        android:id="@+id/foodDialogRB"
+        style="@style/CustomFoodRatingBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:isIndicator="false"
+        android:rating="0"
+        android:layout_margin="4dp"/>
+
+    <Button
+        android:id="@+id/foodRateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Puntuar"
+        android:layout_margin="4dp"/>
+
+    <Button
+        android:id="@+id/cancelRateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/original_red_dark"
+        android:text="Cancelar"
+        android:layout_margin="4dp"/>
+
+</LinearLayout>

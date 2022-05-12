@@ -23,7 +23,7 @@
         android:label="@string/bar_title"
         tools:layout="@layout/fragment_bar">
         <argument
-            android:name="name"
+            android:name="id"
             app:argType="string" />
     </fragment>
 

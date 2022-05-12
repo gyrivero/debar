@@ -1,6 +1,7 @@
 package com.example.barreview.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -42,10 +43,6 @@ class BarListFragment : Fragment() {
                 }
 
                 is Resource.Success -> {
-                    //adapter.setBarList(it.data)
-                    //Toast.makeText(activity, it.data[0].name, Toast.LENGTH_SHORT).show()
-                    Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show()
-                    //Toast.makeText(activity,"nombre" + it.data[1].name,Toast.LENGTH_SHORT).show()
                     adapter.barList = it.data
                     adapter.notifyDataSetChanged()
 
@@ -96,7 +93,6 @@ class BarListFragment : Fragment() {
                     }
 
                     is Resource.Success -> {
-                        Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show()
                         adapter.barList.removeAt(index)
                         adapter.notifyDataSetChanged()
 

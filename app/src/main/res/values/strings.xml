@@ -11,7 +11,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="newbar_name">Nombre</string>
     <string name="newbar_address">Direccion</string>
-    <string name="newbar_title">Ingresa los datos del nuevo bar</string>
+    <string name="newbar_title">Ingresa los datos</string>
     <string name="newbar_neighborhood">Barrio</string>
     <string name="newbar_add">Agregar</string>
 </resources>

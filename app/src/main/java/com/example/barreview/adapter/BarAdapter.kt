@@ -39,7 +39,7 @@ class BarAdapter (private val fragment : BarListFragment) : RecyclerView.Adapter
             fragment.destroyBar(position)
         }
         holder.itemView.setOnClickListener{
-            val action = BarListFragmentDirections.actionBarListFragmentToBarFragment(item.name!!)
+            val action = BarListFragmentDirections.actionBarListFragmentToBarFragment(item.id!!)
             holder.itemView.findNavController().navigate(action)
         }
     }
