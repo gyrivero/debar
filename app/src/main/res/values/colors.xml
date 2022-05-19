@@ -11,5 +11,8 @@
     <color name="original_red_dark">#c5002d</color>
     <color name="original_orange">#fcad2e</color>
     <color name="original_orange_dark">#c47e00</color>
+    <color name="blonde_beer">#FFFF00</color>
+    <color name="black_beer">#FF000000</color>
+    <color name="red_beer">#c5002d</color>
 
 </resources>

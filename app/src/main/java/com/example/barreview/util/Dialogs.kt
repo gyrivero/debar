@@ -7,7 +7,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.Window
 import android.widget.Button
 import android.widget.RatingBar
-import android.widget.Toast
+import android.widget.TextView
 import com.example.barreview.R
 
 
@@ -24,14 +24,14 @@ class Dialogs(context: Context) : Dialog(context){
     }
 
 
-    fun foodDialog() {
+    fun addFoodReviewDialog() {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE)
         this.setCancelable(false)
-        this.setContentView(R.layout.layout_food_dialog)
-        this.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
-        val rateBtn = this.findViewById(R.id.foodRateBtn) as Button
-        val cancelBtn = this.findViewById(R.id.cancelRateBtn) as Button
-        val rating = this.findViewById(R.id.foodDialogRB) as RatingBar
+        this.setContentView(R.layout.layout_add_food_dialog)
+        this.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        val rateBtn = this.findViewById<Button>(R.id.foodRateBtn)
+        val cancelBtn = this.findViewById<Button>(R.id.cancelRateBtn)
+        val rating = this.findViewById<RatingBar>(R.id.foodDialogRB)
         rateBtn.setOnClickListener{
             myDialogListener.onSelectedAValue(rating.rating)
             this.dismiss()
@@ -39,6 +39,23 @@ class Dialogs(context: Context) : Dialog(context){
         cancelBtn.setOnClickListener{
             this.dismiss()
         }
+
+    }
+
+    fun lastFoodReview(ratingValue : Float, dateValue : String) {
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        this.setCancelable(true)
+        this.setContentView(R.layout.layout_last_review_dialog)
+        this.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        val acceptBtn = this.findViewById<Button>(R.id.lastFoodOkBtn)
+        val rating = this.findViewById<RatingBar>(R.id.lastFoodRB)
+        val date = this.findViewById<TextView>(R.id.lastFoodDateTV)
+        rating.rating = ratingValue
+        date.text = dateValue
+        acceptBtn.setOnClickListener{
+            this.dismiss()
+        }
+
 
     }
 

@@ -1,6 +1,7 @@
 package com.example.barreview.data.bar
 
 import com.example.barreview.model.Bar
+import com.example.barreview.model.Beer
 import com.example.barreview.model.FoodReview
 import com.example.barreview.util.Resource
 
@@ -10,4 +11,9 @@ interface IBarDatasource {
     suspend fun fetchFoodReviewList(id: String) : Resource<MutableList<FoodReview>>
 
     suspend fun addFoodReview(id: String,rating: Float)
+
+    suspend fun fetchBeerList(id: String) : Resource<MutableList<Beer>>
+
+    suspend fun updateBarRating(id: String,gRating: Float,fRating: Float ,bRating: Float)
+
 }

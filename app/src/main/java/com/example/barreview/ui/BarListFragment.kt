@@ -35,23 +35,18 @@ class BarListFragment : Fragment() {
     }
 
     private fun observeData() {
-        viewModel.fetchBarList.observe(viewLifecycleOwner, Observer {
+        viewModel.fetchBarList().observe(viewLifecycleOwner, Observer {
             when (it) {
 
                 is Resource.Loading -> {
 
                 }
-
                 is Resource.Success -> {
                     adapter.barList = it.data
                     adapter.notifyDataSetChanged()
-
                 }
-
                 is Resource.Failure -> {
                     Toast.makeText(activity, it.exception.message, Toast.LENGTH_SHORT).show()
-
-
                 }
             }
         })
@@ -93,16 +88,12 @@ class BarListFragment : Fragment() {
                     }
 
                     is Resource.Success -> {
-                        adapter.barList.removeAt(index)
+                        observeData()
                         adapter.notifyDataSetChanged()
-
-
                     }
 
                     is Resource.Failure -> {
                         Toast.makeText(activity, it.exception.message, Toast.LENGTH_SHORT).show()
-
-
                     }
                 }
             })

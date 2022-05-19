@@ -8,7 +8,8 @@ import kotlinx.coroutines.Dispatchers
 class BarListViewModel(private val repo: IBarListRepo) : ViewModel() {
 
 
-    val fetchBarList = liveData(Dispatchers.IO) {
+
+    fun fetchBarList() = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
 
         try {

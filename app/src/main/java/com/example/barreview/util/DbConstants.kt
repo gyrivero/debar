@@ -11,4 +11,8 @@ object DbConstants {
     const val NEIGHBORHOOD = "neighborhood"
     const val RATING = "rating"
     const val CREATED_AT = "created_at"
+    const val COLOR = "color"
+    const val BRAND = "brand"
+    const val FOODRATING = "food_rating"
+    const val BEERRATING = "beer_rating"
 }

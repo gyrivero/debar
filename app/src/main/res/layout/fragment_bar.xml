@@ -85,10 +85,11 @@
             android:id="@+id/foodTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Comida"
-            android:textSize="16sp"
+            android:layout_gravity="center_vertical"
+            android:maxWidth="70dp"
+            android:text="Promedio Comida"
             android:textColor="@color/black"
-            android:layout_gravity="center_vertical" />
+            android:textSize="16sp" />
 
         <RatingBar
             android:id="@+id/foodRB"
@@ -101,17 +102,17 @@
             android:rating="0" />
 
         <ImageButton
-            android:id="@+id/infoBtn"
+            android:id="@+id/lastReviewIB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
             android:contentDescription="Boton para mas info"
             android:layout_marginStart="8dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_baseline_info_24"/>
+            app:srcCompat="@drawable/ic_baseline_history_24"/>
 
         <ImageButton
-            android:id="@+id/foodBtn"
+            android:id="@+id/addFoodBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
@@ -121,5 +122,51 @@
             app:srcCompat="@drawable/ic_baseline_add_box_24"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/beerTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:maxWidth="70dp"
+            android:text="Promedio Cerveza"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <RatingBar
+            android:id="@+id/beerFB"
+            style="@style/CustomBeerRatingBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:isIndicator="true"
+            android:rating="0" />
+
+        <ImageButton
+            android:id="@+id/addBeerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:contentDescription="Boton para agregar"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_baseline_add_box_24"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="16dp"/>
 
 </LinearLayout>

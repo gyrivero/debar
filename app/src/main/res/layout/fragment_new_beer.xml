@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.NewBeerFragment"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/beerColorRG"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_rectangle"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/colorLabelTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_rectangle"
+                android:text="Color de la Cerveza"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:padding="16dp"/>
+
+            <RadioButton
+                android:id="@+id/blondRB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_circle_blond_beer"
+                android:drawablePadding="8dp"
+                android:text="Rubia" />
+
+            <RadioButton
+                android:id="@+id/redRB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_circle_red_beer"
+                android:drawablePadding="8dp"
+                android:text="Roja" />
+
+            <RadioButton
+                android:id="@+id/blackRB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_circle_black_beer"
+                android:drawablePadding="8dp"
+                android:text="Negra" />
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameBeerTFL"
+            style="@style/Widget.BarReview.TextInputOutlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="Tipo"
+            app:errorEnabled="true"
+            app:hintTextAppearance="@style/TextLabel"
+            app:hintTextColor="@color/original_orange_dark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameBeerTF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none|textPersonName"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/brandBeerTFL"
+            style="@style/Widget.BarReview.TextInputOutlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="Marca"
+            app:errorEnabled="true"
+            app:hintTextAppearance="@style/TextLabel"
+            app:hintTextColor="@color/original_orange_dark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/brandBeerTF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPostalAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/ratingBarError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1" />
+
+        <RatingBar
+            android:id="@+id/newBeerRB"
+            style="@style/CustomBeerRatingBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:isIndicator="false"
+            android:rating="0" />
+
+        <Button
+            android:id="@+id/createBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/newbar_add" />
+
+
+    </LinearLayout>
+
+</ScrollView>

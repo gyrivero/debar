@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/gonza/AppData/Local/Android/Sdk/platforms/android-31/data/res/drawable/ratingbar_indicator_material.xml" value="0.137" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/background_rectangle.xml" value="0.1615" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/custom_dialog.xml" value="0.1" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/custom_food_rating_bar.xml" value="0.1615" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/custom_rating_bar.xml" value="0.1605" />
@@ -11,7 +12,11 @@
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.138" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/ic_baseline_circle_24.xml" value="0.138" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.1615" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.138" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/ic_circle_black_beer.xml" value="0.1615" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/ic_circle_blond_beer.xml" value="0.1615" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/ic_circle_red_beer.xml" value="0.1615" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/rating_empty.xml" value="0.1605" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/rating_fill.xml" value="0.1605" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/rating_food_empty.xml" value="0.1615" />
@@ -20,10 +25,15 @@
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/bar_list_item.xml" value="0.1" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/beer_list_item.xml" value="0.8800000000000001" />
-        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/fragment_bar.xml" value="0.4" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/food_list_item.xml" value="0.61" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/fragment_bar.xml" value="0.6" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/fragment_bar_list.xml" value="0.1" />
-        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/fragment_new_bar.xml" value="0.1" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/fragment_new_bar.xml" value="0.536" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/fragment_new_beer.xml" value="0.61" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/layout_add_food_dialog.xml" value="0.61" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/layout_food_dialog.xml" value="0.61" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/layout_food_list_dialog.xml" value="0.61" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/layout/layout_last_review_dialog.xml" value="0.61" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/menu/layout_menu.xml" value="0.20863616930312098" />
       </map>
     </option>

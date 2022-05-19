@@ -15,7 +15,9 @@ class NewBarDatasource : INewBarDatasource {
             DbConstants.NAME to name,
             DbConstants.ADDRESS to address,
             DbConstants.NEIGHBORHOOD to neighborhood,
-            DbConstants.RATING to 2.5f.toDouble(),
+            DbConstants.RATING to 0f.toDouble(),
+            DbConstants.BEERRATING to 0f.toDouble(),
+            DbConstants.FOODRATING to 0f.toDouble(),
             DbConstants.CREATED_AT to Timestamp(System.currentTimeMillis()/1000.toLong(),0)
         )
         FirebaseFirestore.getInstance().collection(DbConstants.BARS).add(data).await()

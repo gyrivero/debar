@@ -29,17 +29,4 @@ class ContainerActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
-
-    override fun onBackPressed() {
-        val navHost = supportFragmentManager.findFragmentById(R.id.nav_graph)
-        navHost?.let { navFragment ->
-            navFragment.childFragmentManager.primaryNavigationFragment?.let { fragment ->
-                if (fragment is NewBarFragment) {
-                    finish()
-                } else {
-                    super.onBackPressed()
-                }
-            }
-        }
-    }
 }

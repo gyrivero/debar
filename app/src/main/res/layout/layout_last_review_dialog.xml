@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/custom_dialog">
+
+    <TextView
+        android:id="@+id/lastReviewTitleTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ultima reseña sobre la comida"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1">
+
+                <RatingBar
+                    android:id="@+id/lastFoodRB"
+                    style="@style/CustomFoodRatingBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="false"
+                    android:isIndicator="true"
+                    android:max="5"
+                    android:numStars="5" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/lastFoodDateTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:gravity="right"
+                android:maxLines="3"
+                android:singleLine="false"
+                android:text="Fecha: 23:43:34"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/lastFoodOkBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aceptar"
+            android:layout_marginHorizontal="8dp"/>
+
+</LinearLayout>

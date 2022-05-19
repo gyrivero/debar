@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_bar_list">
         <action
             android:id="@+id/action_barListFragment_to_barFragment"
-            app:destination="@id/barFragment" />
+            app:destination="@id/barFragment"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_barListFragment_to_newBarFragment"
             app:destination="@id/newBarFragment" />
@@ -25,6 +26,9 @@
         <argument
             android:name="id"
             app:argType="string" />
+        <action
+            android:id="@+id/action_barFragment_to_newBeerFragment"
+            app:destination="@id/newBeerFragment" />
     </fragment>
 
     <fragment
@@ -34,6 +38,21 @@
         tools:layout="@layout/fragment_new_bar">
         <action
             android:id="@+id/action_newBarFragment_to_barListFragment"
-            app:destination="@id/barListFragment" />
+            app:destination="@id/barListFragment"
+            app:popUpTo="@id/barListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/newBeerFragment"
+        android:name="com.example.barreview.ui.NewBeerFragment"
+        android:label="Ingresa los datos">
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_newBeerFragment_to_barFragment"
+            app:destination="@id/barFragment"
+            app:popUpTo="@id/barFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

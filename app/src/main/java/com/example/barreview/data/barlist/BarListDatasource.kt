@@ -17,7 +17,7 @@ class BarListDatasource : IBarListDatasource {
         val querySnapshot = FirebaseFirestore.getInstance().collection(DbConstants.BARS).orderBy(DbConstants.CREATED_AT,Query.Direction.ASCENDING).get().await()
         for (document in querySnapshot.documents) {
             val bar = Bar(document.id,document.getString(DbConstants.NAME),document.getString(DbConstants.ADDRESS),document.getString(DbConstants.NEIGHBORHOOD),
-                document.getDouble(DbConstants.RATING)?.toFloat(),document.getDate(DbConstants.CREATED_AT))
+                document.getDouble(DbConstants.RATING)?.toFloat(),document.getDouble(DbConstants.BEERRATING)?.toFloat(),document.getDouble(DbConstants.FOODRATING)?.toFloat(),document.getDate(DbConstants.CREATED_AT))
             list.add(bar)
             //list.add(document.toObject(Bar::class.java))
         }

@@ -46,4 +46,25 @@ class BarViewModel(private val repo: IBarRepo) : ViewModel() {
         }
     }
 
+    fun fetchBeerList(id : String) = liveData(Dispatchers.IO) {
+        emit(Resource.Loading())
+
+        try {
+            val list = repo.fetchBeerList(id)
+            emit(list)
+        } catch (e: Exception) {
+            emit(Resource.Failure(e))
+        }
+    }
+
+    fun updateBeerRating(id: String, gRating: Float,fRating : Float, bRating : Float) = liveData(viewModelScope.coroutineContext + Dispatchers.IO) {
+        emit(Resource.Loading())
+
+        try {
+            emit(Resource.Success(repo.updateBarRating(id,gRating,fRating, bRating)))
+        } catch (e: Exception) {
+            emit(Resource.Failure(e))
+        }
+    }
+
 }

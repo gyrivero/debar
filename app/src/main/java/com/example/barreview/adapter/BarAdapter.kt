@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.RatingBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.barreview.ui.BarListFragment
@@ -34,7 +33,7 @@ class BarAdapter (private val fragment : BarListFragment) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = barList[position]
         holder.textView.text = item.name
-        holder.ratingBar.rating = item.rating!!
+        holder.ratingBar.rating = item.generalRating!!
         holder.imageButton.setOnClickListener{
             fragment.destroyBar(position)
         }
