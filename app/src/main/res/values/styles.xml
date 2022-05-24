@@ -15,13 +15,19 @@
     </style>
 
     <style name="CustomBeerRatingBarStyle" parent="Widget.AppCompat.RatingBar">
-        <item name="android:progressDrawable">@drawable/custom_rating_bar</item>
+        <item name="android:progressDrawable">@drawable/custom_beer_rating_bar</item>
         <item name="android:minHeight">15dip</item>
         <item name="android:maxHeight">47dip</item>
     </style>
 
     <style name="CustomFoodRatingBarStyle" parent="Widget.AppCompat.RatingBar">
         <item name="android:progressDrawable">@drawable/custom_food_rating_bar</item>
+        <item name="android:minHeight">15dip</item>
+        <item name="android:maxHeight">47dip</item>
+    </style>
+
+    <style name="CustomBarRatingBarStyle" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/custom_bar_rating_bar</item>
         <item name="android:minHeight">15dip</item>
         <item name="android:maxHeight">47dip</item>
     </style>

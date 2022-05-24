@@ -244,6 +244,32 @@ class BarFragment : Fragment() {
         }
     }
 
+    fun destroyBeer(id: String?) {
+        barId?.let {
+            if (id != null) {
+                viewModel.deleteBeer(it,id).observe(viewLifecycleOwner,Observer{
+                    when (it) {
+
+                        is Resource.Loading -> {
+
+                        }
+
+                        is Resource.Success -> {
+                            observeBeerData(barId)
+                            changes = true
+                            adapter.notifyDataSetChanged()
+                        }
+
+                        is Resource.Failure -> {
+                            Toast.makeText(activity, it.exception.message, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                })
+            }
+        }
+
+    }
+
     private fun setUI() {
         binding.barNameTV.setText(bar.name)
         binding.barAddressTV.setText(bar.address)

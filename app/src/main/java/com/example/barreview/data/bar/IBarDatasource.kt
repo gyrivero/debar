@@ -16,4 +16,6 @@ interface IBarDatasource {
 
     suspend fun updateBarRating(id: String,gRating: Float,fRating: Float ,bRating: Float)
 
+    suspend fun deleteBeer(idBar:String, idBeer: String)
+
 }

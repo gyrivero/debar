@@ -67,4 +67,14 @@ class BarViewModel(private val repo: IBarRepo) : ViewModel() {
         }
     }
 
+    fun deleteBeer(idBar : String,idBeer: String) = liveData(viewModelScope.coroutineContext + Dispatchers.IO) {
+        emit(Resource.Loading())
+
+        try {
+            emit(Resource.Success(repo.deleteBeer(idBar, idBeer)))
+        } catch (e: Exception) {
+            emit(Resource.Failure(e))
+        }
+    }
+
 }

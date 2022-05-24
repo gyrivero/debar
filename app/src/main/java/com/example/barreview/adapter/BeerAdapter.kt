@@ -38,6 +38,9 @@ class BeerAdapter (private val fragment : BarFragment) : RecyclerView.Adapter<Be
         holder.beerName.text = item.name
         holder.beerRating.rating = item.rating!!
         holder.beerBrand.text = item.brand
+        holder.deleteIB.setOnClickListener{
+            fragment.destroyBeer(item.id)
+        }
     }
 
     override fun getItemCount(): Int {

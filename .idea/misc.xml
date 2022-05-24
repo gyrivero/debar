@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/gonza/AppData/Local/Android/Sdk/platforms/android-31/data/res/drawable/ratingbar_indicator_material.xml" value="0.137" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/background_rectangle.xml" value="0.1615" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/custom_bar_rating_bar.xml" value="0.1615" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/custom_dialog.xml" value="0.1" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/custom_food_rating_bar.xml" value="0.1615" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/custom_rating_bar.xml" value="0.1605" />
@@ -17,6 +18,8 @@
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/ic_circle_black_beer.xml" value="0.1615" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/ic_circle_blond_beer.xml" value="0.1615" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/ic_circle_red_beer.xml" value="0.1615" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/rating_bar_empty.xml" value="0.1615" />
+        <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/rating_bar_fill.xml" value="0.1615" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/rating_empty.xml" value="0.1605" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/rating_fill.xml" value="0.1605" />
         <entry key="..\:/Users/gonza/Desktop/Pruebas/BarReview/app/src/main/res/drawable/rating_food_empty.xml" value="0.1615" />

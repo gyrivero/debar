@@ -5,7 +5,19 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import com.example.barreview.data.auth.AuthDatasource
+import com.example.barreview.data.bar.BarDatasource
 import com.example.barreview.databinding.ActivityMainBinding
+import com.example.barreview.domain.auth.AuthRepo
+import com.example.barreview.domain.bar.BarRepo
+import com.example.barreview.util.Resource
+import com.example.barreview.viewmodel.auth.AuthViewModel
+import com.example.barreview.viewmodel.auth.AuthViewModelFactory
+import com.example.barreview.viewmodel.bar.BarViewModel
+import com.example.barreview.viewmodel.bar.BarViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -13,13 +25,14 @@ import com.google.firebase.ktx.Firebase
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityMainBinding;
-    private lateinit var auth: FirebaseAuth
+    private val viewModel by viewModels<AuthViewModel> { AuthViewModelFactory(AuthRepo(
+        AuthDatasource()
+    )) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        auth = Firebase.auth
 
         binding.loginBtn.setOnClickListener{
         singIn(it.context,binding.userTF.text.toString(),binding.passTF.text.toString())
@@ -28,18 +41,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun singIn(context: Context,email : String,password : String) {
         if (!checker(email, password)) {
-            auth.signInWithEmailAndPassword("gonzaloyrivero@gmail.com", "gebo2808")
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        val user = auth.currentUser
+            viewModel.signIn(email, password).observe(this,Observer {
+                when (it) {
+
+                    is Resource.Loading -> {
+
+                    }
+
+                    is Resource.Success -> {
                         val intent = Intent(context, ContainerActivity::class.java)
                         context.startActivity(intent)
-                        Toast.makeText(baseContext,"Autenticacion correcta " + user,Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(baseContext, "Authentication failed.",
-                            Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,"Autenticacion correcta",Toast.LENGTH_SHORT).show()
+                    }
+
+                    is Resource.Failure -> {
+                        Toast.makeText(this, it.exception.message, Toast.LENGTH_SHORT).show()
                     }
                 }
+            })
         }
     }
 

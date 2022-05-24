@@ -17,4 +17,6 @@ class BarRepo (private val data: IBarDatasource) : IBarRepo {
 
     override suspend fun updateBarRating(id: String,gRating: Float,fRating: Float ,bRating: Float) = data.updateBarRating(id,gRating,fRating, bRating)
 
+    override suspend fun deleteBeer(idBar: String, idBeer: String) = data.deleteBeer(idBar,idBeer)
+
 }

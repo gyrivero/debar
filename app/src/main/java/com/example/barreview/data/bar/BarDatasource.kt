@@ -50,7 +50,7 @@ class BarDatasource : IBarDatasource {
         val list = mutableListOf<Beer>()
         val querySnapshot = FirebaseFirestore.getInstance().collection(DbConstants.BARS).document(id).collection(DbConstants.BEERS).orderBy(DbConstants.CREATED_AT,Query.Direction.DESCENDING).get().await()
         for (document in querySnapshot.documents) {
-            val beer = Beer(document.getString(DbConstants.COLOR),document.getString(DbConstants.NAME),document.getString(DbConstants.BRAND),
+            val beer = Beer(document.id,document.getString(DbConstants.COLOR),document.getString(DbConstants.NAME),document.getString(DbConstants.BRAND),
                 document.getDouble(DbConstants.RATING)?.toFloat(),document.getDate(DbConstants.CREATED_AT))
             list.add(beer)
         }
@@ -60,6 +60,11 @@ class BarDatasource : IBarDatasource {
 
     override suspend fun updateBarRating(id: String,gRating: Float,fRating: Float ,bRating: Float) {
         FirebaseFirestore.getInstance().collection(DbConstants.BARS).document(id).update(mapOf(DbConstants.RATING to gRating,DbConstants.FOODRATING to fRating,DbConstants.BEERRATING to bRating)).await()
+
+    }
+
+    override suspend fun deleteBeer(idBar : String,idBeer: String) {
+        FirebaseFirestore.getInstance().collection(DbConstants.BARS).document(idBar).collection(DbConstants.BEERS).document(idBeer).delete().await()
 
     }
 
